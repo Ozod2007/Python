@@ -186,4 +186,4 @@ for x in range(0, 2):
                 if not(((w <= (not x)) == (z <= y)) and (y or w)):
                     print(x, y,z, w)
 ```
-### Ответ: 
+### Ответ: xwyz
