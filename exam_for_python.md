@@ -237,7 +237,6 @@ for x in range(0, 2):
                 F2 = ((x <= y) == (w or not z))
                 print(x, y, z, w, " ", int(F1), " ", int(F2))
 ```
-> Пояснение: 
 ### Ответ: xzyw
 
 ## Тип 8 №18491
