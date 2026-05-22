@@ -715,9 +715,23 @@ for i in range(0, len(a)):
 |0||1||1|
 |0||0|0|1|
 ```
+print('x y z w')
+for x in range(0, 2):
+    for y in range(0, 2):
+        for z in range(0, 2):
+            for w in range(0, 2):
+                if ((x == z) <= (not(y) or w)) == (not((w <= z) or (x <= y))):
+                    print(x, y, z, w)
 
 ```
-### Ответ:
+```
+x y z w
+0 1 0 0
+1 0 0 1
+1 1 1 0
+```
+### Ответ: zyxw
+> Пояснение: считать наоборот цифры
 
 ## Тип 8
 
