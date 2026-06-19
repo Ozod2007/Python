@@ -90,6 +90,18 @@ for x in a:
                     if c % 2 != 0 and ("ЬЬ" not in s) and s.count("В") == 2 and s.count("Т") <= 1:
                         print(c)
 ```
+## Второй вариант
+```
+from itertools import product
+c = 0
+m = []
+for p in product(sorted('КРОВАТЬ'), repeat = 5):
+    s = ''.join(p)
+    c += 1
+    if c % 2 != 0 and s.count('Т') <= 1 and s.count('В') == 2 and ('ЬЬ' not in s):
+        m.append(c)
+print(max(m))
+```
 ### Ответ: 16277
 
 ## Тип 2 26974
