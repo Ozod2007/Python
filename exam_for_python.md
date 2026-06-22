@@ -77,7 +77,7 @@ for x in range(2):
 #### 5.  ААААР
 #### 6.  ААААТ
 ...
-Под каким номером в списке идёт последнее слово c нечётным номером, которое содержит не более одной буквы Т, две буквы В и не содержит букв Ь, стоящих рядом?
+Под каким номером в списке идёт последнее слово c нечетным номером, которое содержит не более одной буквы Т, две буквы В и не содержит букв Ь, стоящих рядом?
 ```
 a = 'АВКОРТЬ'
 c = 0
@@ -155,7 +155,7 @@ for x in range(2):
     for y in range(2):
         for z in range(2):
             for w in range(2):
-                if (x and not y) or (y == z) or not w:
+                if ((x and not y) or (y == z) or not w) == False:
                     print(x, y, z, w)
 ```
 > Пояснение: Первый столбец это w потому что она должна равняться 1, второй z т.к если F должен быть ложен, третий y по исключению и x
@@ -612,6 +612,17 @@ for x in range(0, 2):
 
 Под каким номером в списке идёт первое слово, в котором нет буквы А?
 ```
+from itertools import product
+c = 0
+for i in product (sorted('РЕКА'), repeat=4):
+    c += 1
+    if i.count('А') == 0:
+        break
+print(c)
+
+```
+## Второй вариант
+```
 a = {0: "А", 1: "Е", 2: "К", 3: "Р"}
 c = 0
 for i in range(0, len(a)):
@@ -697,18 +708,13 @@ for x in range(0, 2):
 
 Под каким номером в списке идёт первое слово, в котором нет буквы А?
 ```
-a = {0: "А", 1: "П", 2: "Р", 3: "С", 4: "у"}
+from itertools import product
 c = 0
-for i in range(0, len(a)):
-    for j in range(0, len(a)):
-        for k in range(0, len(a)):
-            for l in range(0, len(a)):
-                s = a[i] + a[j] + a[k] + a[l]
-                c += 1
-                if s.count('А') == 0:
-                    print(c)
-                    break
-
+for p in product (sorted('ПАРУС'), repeat=4):
+    c += 1
+    if p.count('А') == 0:
+        break
+print(c)
 ```
 ### Ответ: 157
 
@@ -742,17 +748,13 @@ for x in range(0, 2):
 
 Запишите слово, которое стоит на 486-⁠м месте от начала списка.
 ```
-a = {0: "Б", 1: "К", 2: "Ф", 3: "Ц"}
+from itertools import product
 c = 0
-for i in range(0, len(a)):
-    for j in range(0, len(a)):
-        for k in range(0, len(a)):
-            for l in range(0, len(a)):
-                for m in range(0, len(a)):
-                    s = a[i] + a[j] + a[k] + a[l]
-                    c += 1
-                    if c == 486:
-                        print(a[i], a[j], a[k], a[l], a[m], end=" ")
+for p in product (sorted('БКФЦ'), repeat=5):
+    c += 1
+    if c == 486:
+        break
+print(p)
 ```
 ### Ответ: КЦФКК
 
@@ -794,18 +796,13 @@ x y z w
 ...
 Запишите слово, которое стоит на 170-⁠м месте от начала списка.
 ```
-a = {0: "А", 1: "О", 2: "У"}
+from itertools import product
 c = 0
-for i in range(0, len(a)):
-    for j in range(0, len(a)):
-        for k in range(0, len(a)):
-            for l in range(0, len(a)):
-                for m in range(0, len(a)):
-                    s = a[i] + a[j] + a[k] + a[l]
-                    c += 1
-                    if c == 170:
-                        print(a[i], a[j], a[k], a[l], a[m], end=" ")
-
+for p in product (sorted('АОУ'), repeat=5):
+    c += 1
+    if c == 170:
+        break
+print(p)
 ```
 ### Ответ: УААУО
 
@@ -833,6 +830,15 @@ for x in range(0, 2):
 ## Тип 8 13486
 Игорь составляет таблицу кодовых слов для передачи сообщений, каждому сообщению соответствует своё кодовое слово. В качестве кодовых слов Игорь использует 5-⁠буквенные слова, в которых есть только буквы A, B, C, X, причём буква X появляется ровно 1 раз и только на 1-⁠й или последней позиции слова. Каждая из других допустимых букв может встречаться в кодовом слове любое количество раз или не встречаться совсем. Сколько различных кодовых слов может использовать Игорь?
 ```
+from itertools import product
+c = 0
+for p in product (sorted('АВСХ'),repeat=5):
+    if p.count('Х') == 1 and (p[0] == 'Х' or p[-1] == 'Х'):
+        c += 1
+print(c
+```
+## Второй вариант
+```
 import itertools
 a = "ABCX"
 fr = itertools.product(a, repeat=5)
@@ -845,7 +851,7 @@ for y in m:
         count += 1
 print(count)
 ```
-## Второй вариант
+## Третий вариант
 ```
 a = ['А', 'В', 'С', 'Х']
 c = 0
